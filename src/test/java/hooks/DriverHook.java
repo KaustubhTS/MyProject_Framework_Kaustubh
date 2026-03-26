@@ -7,7 +7,7 @@ import utils.ConfigReader;
 
 public class DriverHook {
 	
-	ConfigReader configReader = ConfigReader.getInstance();
+	ConfigReader configReader = ConfigReader.getInstance();// create instance of ConfigReader to read properties
 	
 	@Before
     public void setup() {
