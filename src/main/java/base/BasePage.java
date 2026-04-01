@@ -29,7 +29,7 @@ public class BasePage {
 		try {
 			
 			WaitUtil.waitForVisibility(driver, locator).sendKeys(text);
-		} catch (Exception e) {
+		} catch (NoSuchElementException e) {
 			
 			throw new ElementException("Failed to type into element: " + locator, e);
 		}
@@ -39,7 +39,7 @@ public class BasePage {
 		try {
 			
 			return WaitUtil.waitForVisibility(driver, locator).getText();
-		} catch (Exception e) {
+		} catch (NoSuchElementException e) {
 			
 			throw new ElementException("Failed to get text from element: " + locator, e);
 		}

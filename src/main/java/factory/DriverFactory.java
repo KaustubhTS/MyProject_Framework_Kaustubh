@@ -10,6 +10,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import exceptions.BrowserExceptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverFactory {
@@ -40,7 +41,7 @@ public class DriverFactory {
 			FirefoxOptions firefoxOptions = new FirefoxOptions();
 			firefoxOptions.addArguments("--start-maximized");
 			firefoxOptions.addArguments("--disable-notifications");
-		
+
 			if (Boolean.parseBoolean(System.getProperty("headless"))) {
 				firefoxOptions.addArguments("-headless");
 			}
@@ -74,9 +75,14 @@ public class DriverFactory {
 	}
 
 	public static void quitDriver() {
-		if (driver.get() != null) {
-			driver.get().quit();
-			driver.remove();
+		try {
+			if (driver.get() != null) {
+				driver.get().quit();
+				driver.remove();
+
+			}
+		} catch (Exception e) {
+			throw new BrowserExceptions("Driver not quit properly", e);
 		}
 	}
 }
