@@ -14,22 +14,17 @@ import org.openqa.selenium.WebElement;
  * ScreenshotUtil placeholder - no implementation per user request.
  */
 public class ScreenshotUtil {
-	
-	private static void createScreenshotFolder()
-	{
 
-	    File folder =
-	            new File(System.getProperty("user.dir") + "/screenshots");
+	private static void createScreenshotFolder() {
 
-	    if(!folder.exists())
-	    {
-	        folder.mkdir();
-	    }
+		File folder = new File(System.getProperty("user.dir") + "/screenshots");
+
+		if (!folder.exists()) {
+			folder.mkdir();
+		}
 	}
-	
-	
-	
 
+	
 	public static String captureScreenshot(WebDriver driver, String testName) {
 
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -54,33 +49,25 @@ public class ScreenshotUtil {
 
 		return path;
 	}
-	
-	
-	public static String captureElementScreenshot( WebElement element,String elementName)
-	{
 
-	    String timeStamp =
-	            new SimpleDateFormat("yyyyMMdd_HHmmss")
-	                    .format(new Date());
+	public static String captureElementScreenshot(WebElement element, String elementName) {
 
-	    String path =
-	            System.getProperty("user.dir")
-	                    + "/screenshots/"
-	                    + elementName
-	                    + "_" + timeStamp + ".png";
+		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
 
-	    try {
+		String path = System.getProperty("user.dir") + "/screenshots/" + elementName + "_" + timeStamp + ".png";
 
-	        File src = element.getScreenshotAs(OutputType.FILE);
+		try {
 
-	        FileUtils.copyFile(src, new File(path));
+			File src = element.getScreenshotAs(OutputType.FILE);
 
-	    } catch (Exception e) {
+			FileUtils.copyFile(src, new File(path));
 
-	        e.printStackTrace();
-	    }
+		} catch (Exception e) {
 
-	    return path;
+			e.printStackTrace();
+		}
+
+		return path;
 	}
 
 }
