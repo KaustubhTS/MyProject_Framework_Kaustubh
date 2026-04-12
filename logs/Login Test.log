@@ -1,0 +1,5 @@
+2026-04-06 15:54:56,127 [TestNG-tests-1] INFO  actions.LoginActions - Login Test Started for User 'standard_user'
+2026-04-06 15:54:57,313 [TestNG-tests-1] INFO  actions.LoginActions - Login status for standard_user = true
+2026-04-06 15:54:57,316 [TestNG-tests-1] INFO  actions.LoginActions - Login Test Ended
+2026-04-06 15:54:57,558 [TestNG-tests-1] INFO  actions.ProductsPageActions - Product Sauce Labs Backpack added
+2026-04-06 15:54:57,794 [TestNG-tests-1] INFO  actions.ProductsPageActions - Clicked on shopping cart

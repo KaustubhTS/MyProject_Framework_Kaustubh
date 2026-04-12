@@ -1,6 +1,8 @@
 package factory;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,6 +29,14 @@ public class DriverFactory {
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("--start-maximized");
 			chromeOptions.addArguments("--disable-notifications");
+			chromeOptions.addArguments("--disable-save-password-bubble");
+			chromeOptions.addArguments("--disable-notifications");
+
+			Map<String, Object> prefs = new HashMap<>();
+			prefs.put("credentials_enable_service", false);
+			prefs.put("profile.password_manager_enabled", false);
+
+			chromeOptions.setExperimentalOption("prefs", prefs);
 
 			if (Boolean.parseBoolean(System.getProperty("headless"))) {
 				chromeOptions.addArguments("--headless=new");

@@ -2,20 +2,17 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 import base.BasePage;
+import utils.AlertUtil;
 
 public class LoginPage extends BasePage {
-	
 
-	
-	
 	private By username = By.id("user-name");
 	private By password = By.id("password");
 	private By loginBtn = By.id("login-button");
 	private By errorMsg = By.cssSelector("h3[data-test='error']");
+	AlertUtil alertUtil = new AlertUtil(driver);
 
 	public LoginPage(WebDriver driver) {
 		super(driver);
@@ -32,6 +29,7 @@ public class LoginPage extends BasePage {
 	}
 
 	public void clickLogin() {
+
 		click(loginBtn);
 
 	}
